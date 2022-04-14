@@ -1,1 +1,33 @@
-"manifest"
+{
+    "manifest_version": 3,
+    "name": "iColorChrome",
+    "description": "Add your favorite background color to Google.com",
+    "version": "1.0",
+    "background": {
+        "service_worker": "main.js"
+    },
+    "action": {
+       "default_popup": "popup.html",
+       "default_icon": {
+           "16": "./imgs/ourImg.png",
+           "32": "./imgs/ourImg.png",
+           "48": "./imgs/ourImg.png",
+           "128": "./imgs/ourImg.png"
+       }
+    },
+    "icons": {
+        "16": "./imgs/ourImg.png",
+        "32": "./imgs/ourImg.png",
+        "48": "./imgs/ourImg.png",
+        "128": "./imgs/ourImg.png"
+    },
+    "permissions": ["storage", "activeTab", "scripting"],
+    "chrome_url_overrides" : {
+        "newtab": "newtab.html"
+    },
+    "content_scripts": [{
+        "matches": ["https://www.google.com/*"],
+        "css": ["main.css"]
+    }]
+
+}
